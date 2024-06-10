@@ -1,0 +1,60 @@
+[
+  {
+    "id": 1,
+    "nom": "Chambre 305",
+    "type": "Chambre",
+    "proprietaireId": 1,
+    "proprietaire": {
+      "id": 1,
+      "nom": "Traoré Mahamadou",
+      "telephone": "75757575",
+      "email": "traore.mahamadou@gmail.com",
+      "adresse": "Bamako",
+      "ville": "Bamako",
+      "pays": "Mali",
+      "contactUrgence": "Oumar Traoré: 45454545"
+    },
+    "immeubleId": 1,
+    "immeuble": {
+      "id": 1,
+      "nom": "Résidence Traoré",
+      "proprietaireId": 1,
+      "proprietaire": {
+        "id": 1,
+        "nom": "Traoré Mahamadou",
+        "telephone": "75757575",
+        "email": "traore.mahamadou@gmail.com",
+        "adresse": "Bamako",
+        "ville": "Bamako",
+        "pays": "Mali",
+        "contactUrgence": "Oumar Traoré: 45454545"
+      },
+      "pays": "Mali",
+      "region": "Bamako",
+      "ville": "Hamdallaye",
+      "adresse": "Hamdallaye ACI 2000",
+      "autresInfo": ""
+    },
+    "pays": "Mali",
+    "region": "Bamako",
+    "ville": "Hamdallaye",
+    "adresse": "Hamdallaye ACI 2000",
+    "typeLocation": "Vide",
+    "loyerHorsCharge": 30000,
+    "charges": 0,
+    "detailsCharge": "",
+    "loyerTotal": 30000,
+    "montantProprietaire": 0,
+    "commissionAgence": 0,
+    "superficie": 30.00,
+    "nombrePiece": 1,
+    "nombreChambre": 1,
+    "nombreSalleBain": 1,
+    "dateConstruction": "2018-04-12",
+    "typeHabitat": "Maison basse",
+    "statut": 1,
+    "description": "",
+    "note": ""
+
+  }
+]

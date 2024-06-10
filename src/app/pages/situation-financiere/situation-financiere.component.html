@@ -1,0 +1,174 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" class="flex-p">
+  <div fxLayout="column" fxFlex="100">
+    <mat-button-toggle-group
+      #controls="matButtonToggleGroup"
+      appearance="legacy">
+      <div fxLayout="row" fxFlex="100" fxLayoutAlign="start center">
+        <div fxFlex="100" fxLayout="column">
+          <mat-label class="page-title">{{
+            "situation.financière" |
+            translate }}
+          </mat-label>
+        </div>
+      </div>
+    </mat-button-toggle-group>
+  </div>
+</div>
+<div fxLayout="row" fxLayoutAlign="space-between center" class="flex-p">
+  <div fxLayout="column" fxFlex="100">
+    <!-- <div fxLayout="row" fxLayoutAlign="space-between center" class>
+      <div fxLayout="column" fxFlex="100">
+        <mat-button-toggle-group
+          #controls="matButtonToggleGroup"
+          appearance="legacy">
+          <div fxLayout="row" fxFlex="85" fxLayoutAlign="start center">
+            <form class="list-search">
+              <mat-form-field appearance="outline">
+                <input
+                  matInput
+                  placeholder="{{ 'Rechercher...' | translate }}" />
+              </mat-form-field>
+            </form>
+          </div>
+          <div fxLayout="row" fxFlex="10" fxLayoutAlign="end">
+            <button
+              mat-icon-button
+              color="primary"
+              matTooltip="{{ 'Imprimer' | translate }}">
+              <mat-icon>print</mat-icon>
+            </button>
+          </div>
+        </mat-button-toggle-group>
+      </div>
+    </div> -->
+    <!-- Tableau -->
+    <div fxLayout="column">
+      <div class="prefix-css">
+        <ngx-datatable
+          class="material striped"
+          [headerHeight]="25"
+          [columnMode]="ColumnMode.force"
+          [footerHeight]="35"
+          [rowHeight]="'auto'"
+          [rows]="rows"
+          [limit]="nbligne"
+          [selected]
+          [selectionType]="SelectionType.checkbox"
+          [selectAllRowsOnPage]="false"
+          [summaryRow]="true"
+          [summaryHeight]="35"
+          [summaryPosition]="'bottom'">
+
+          <ngx-datatable-column [width]="100"
+            [canAutoResize]="false" prop="recu" [width]="100"
+            [sortable]="false">
+            <ng-template ngx-datatable-header-template
+              let-sort="sortFn">
+              <span>{{ "recu" | translate }}</span>
+            </ng-template>
+            <ng-template
+              ngx-datatable-cell-template
+              let-value="value"
+              let-row="row">
+              <div>
+                {{ row.recu }}
+              </div>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column prop="date" [sortable]="false">
+            <ng-template ngx-datatable-header-template
+              let-sort="sortFn">
+              <span>{{ "date_echeance" | translate }}</span>
+            </ng-template>
+            <ng-template
+              ngx-datatable-cell-template
+              let-value="value"
+              let-row="row">
+              <div>
+                {{ row.date | date: "dd/MM/yyyy" }}
+              </div>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column prop="date_reglement" [sortable]="false">
+            <ng-template ngx-datatable-header-template
+              let-sort="sortFn">
+              <span>{{ "date_reglement" | translate }}</span>
+            </ng-template>
+            <ng-template
+              ngx-datatable-cell-template
+              let-value="value"
+              let-row="row">
+              <div>
+                {{ row.date_reglement | date: "dd/MM/yyyy" }}
+              </div>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column prop="montant_paye" [sortable]="false">
+            <ng-template ngx-datatable-header-template
+              let-sort="sortFn">
+              <span>{{ "montant_paye" | translate }}</span>
+            </ng-template>
+            <ng-template
+              ngx-datatable-cell-template
+              let-value="value"
+              let-row="row">
+              <div>
+                {{ row.montant_paye }}
+              </div>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column prop="net" [sortable]="false">
+            <ng-template ngx-datatable-header-template
+              let-sort="sortFn">
+              <span>{{ "net" | translate }}</span>
+            </ng-template>
+            <ng-template
+              ngx-datatable-cell-template
+              let-value="value"
+              let-row="row">
+              <div>
+                {{ row.net }}
+              </div>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column prop="montant_restant" [sortable]="false">
+            <ng-template ngx-datatable-header-template let-sort="sortFn">
+              <span>{{ "montant.restant" | translate }}</span>
+            </ng-template>
+            <ng-template ngx-datatable-cell-template let-row="row">
+              <div>
+                {{ row.net - row.montant_paye}}
+              </div>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column
+            prop="est_solde"
+            [sortable]="false" [width]="200" [canAutoResize]="false">
+            <ng-template ngx-datatable-header-template>
+              <span>{{ "est.solde" | translate }}</span>
+            </ng-template>
+            <ng-template
+              ngx-datatable-cell-template
+              let-value="value"
+              let-row="row">
+              <div class="datatable-box-chip">
+                <mat-chip-list aria-orientation="horizontal">
+                  <mat-chip
+                    *ngIf="value === 'Y'"
+                    [style.background-color]="'rgb(97, 157, 253)'">
+                    {{ "p" | translate }}
+                  </mat-chip>
+                  <mat-chip
+                    *ngIf="value === 'N'"
+                    [style.background-color]="'#e66d6d'">
+                    {{ "np" | translate }}
+                  </mat-chip>
+                </mat-chip-list>
+              </div>
+            </ng-template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+      </div>
+    </div>
+  </div>
+</div>

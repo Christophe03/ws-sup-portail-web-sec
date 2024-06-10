@@ -1,0 +1,47 @@
+<h2 class="mat-dialog-title">{{ modalTitle }}</h2>
+
+<mat-dialog-content class="dialog-content">
+  <div fxFlex="100" fxLayout="column" fxLayoutAlign="center stretch">
+    <div
+      fxFlex="100"
+      fxLayout="row"
+      fxLayoutAlign="center center"
+      class="msg-content"
+    >
+      <div [innerHTML]="message"></div>
+      <!-- {{ message }} -->
+    </div>
+    <div fxFlex="100" fxLayout="row" fxLayoutAlign="center stretch">
+      <div fxFlex="100" fxLayout="column">
+        <!-- <div fxFlex="100" fxLayout="row" fxLayoutAlign="center stretch"> -->
+        <mat-form-field appearance="outline">
+          <textarea
+            matInput
+            [(ngModel)]="returnWord"
+            [placeholder]="placeholderMessage"
+            rows="3"
+          ></textarea>
+        </mat-form-field>
+        <!-- </div> -->
+      </div>
+    </div>
+    <div fxFlex="100" fxLayout="row" fxLayoutAlign="center center">
+      <div fxFlex="49" fxLayout="column" fxLayoutAlign="center stretch">
+        <button mat-raised-button mat-dialog-close color="primary">
+          {{ no }}
+        </button>
+      </div>
+      <div fxFlex="2" fxLayout="column"></div>
+      <div fxFlex="49" fxLayout="column" fxLayoutAlign="center stretch">
+        <button
+          mat-raised-button
+          (click)="confirmer()"
+          color="warn"
+          [disabled]="returnWord.length == 0"
+        >
+          {{ yes }}
+        </button>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>

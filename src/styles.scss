@@ -1,0 +1,25 @@
+// for npm roboto-fontface package (to load local files)
+$roboto-font-path: "~roboto-fontface/fonts" !default;//OK
+@import "roboto-fontface/css/roboto/sass/roboto-fontface.scss";//OK
+
+// for npm material-icons package (to load local files)
+$material-icons-font-path: '~material-icons/iconfont/';//OK
+@import 'material-icons/iconfont/material-icons.scss';//OK
+
+
+@import url('https://cdn.quilljs.com/1.2.2/quill.snow.css');//OK
+@import url('https://cdn.quilljs.com/1.2.2/quill.bubble.css');//OK
+
+// indigo-pink, deeppurple-amber, purple-green and pink-bluegrey.
+@import '@angular/material/prebuilt-themes/indigo-pink.css';//OK
+
+@import "../node_modules/angular-calendar/css/angular-calendar.css";//OK
+// @import "../node_modules/dragula/dist/dragula.min.css";//NON OK
+@import "../node_modules/@swimlane/ngx-datatable/themes/material.css";//OK
+@import "../node_modules/@swimlane/ngx-datatable/assets/icons.css";//OK
+@import "../node_modules/leaflet/dist/leaflet.css";//OK
+
+@import "app/theme/styles/base";//Ok
+@import "app/theme/styles/theme";//OK
+@import "app/theme/styles/libs-override";//OK
+@import "app/theme/styles/rtl";//OK

@@ -1,0 +1,252 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" class="flex-p">
+  <div fxLayout="column" fxFlex="100">
+    <mat-button-toggle-group
+      #controls="matButtonToggleGroup"
+      appearance="legacy">
+      <div fxLayout="row" fxFlex="100" fxLayoutAlign="start center">
+        <div fxFlex="100" fxLayout="column">
+          <mat-label class="page-title">{{ "Absences & Sanctions" |
+            translate }}
+          </mat-label>
+        </div>
+      </div>
+    </mat-button-toggle-group>
+  </div>
+</div>
+<div fxLayout="row" fxLayoutAlign="space-between center" class="flex-p">
+  <div fxLayout="row" fxLayoutGap="15px" fxFlex="100">
+    <mat-card fxFlex="30%" class="boite1" fxLayout="column">
+      <div class="box-content">
+        <div class="box-number">1</div>
+        <div class="box-label">Absences</div>
+      </div>
+    </mat-card>
+    <mat-card fxFlex="30%" class="boite2" fxLayout="column">
+      <div class="box-content">
+        <div class="box-number">2</div>
+        <div class="box-label">Retards</div>
+      </div>
+    </mat-card>
+    <mat-card fxFlex="30%" class="boite3" fxLayout="column">
+      <div class="box-content">
+        <div class="box-number">3</div>
+        <div class="box-label">Sanctions</div>
+      </div>
+    </mat-card>
+  </div>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="space-between center" class="flex-p">
+  <div fxLayout="column" fxFlex="100">
+    <mat-tab-group>
+      <mat-tab label="{{ 'Absences' | translate }}">
+
+        <!-- Tableau -->
+        <div fxLayout="column">
+          <div class="prefix-css">
+            <ngx-datatable
+              class="material striped"
+              [headerHeight]="25"
+              [columnMode]="ColumnMode.force"
+              [footerHeight]="35"
+              [rowHeight]="'auto'"
+              [rows]
+              [limit]="nbligne"
+              [selected]
+              [selectionType]="SelectionType.checkbox"
+              [selectAllRowsOnPage]="false">
+              <ngx-datatable-column
+                [width]="30"
+                [sortable]="false"
+                [canAutoResize]="false"
+                [draggable]="false"
+                [resizeable]="false"
+                [headerCheckboxable]="false"
+                [checkboxable]="false">
+              </ngx-datatable-column>
+
+              <ngx-datatable-column
+                [width]="150"
+                [canAutoResize]="false"
+                prop="code">
+                <ng-template ngx-datatable-header-template let-sort="sortFn">
+                  <span>{{ "Absence / RETARD" | translate }}</span>
+                </ng-template>
+                <ng-template
+                  ngx-datatable-cell-template
+                  let-value="value"
+                  let-row="row">
+                  <div>
+                    {{ value }}
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="libelle">
+                <ng-template ngx-datatable-header-template let-sort="sortFn">
+                  <span>{{ "Durée" | translate }}</span>
+                </ng-template>
+                <ng-template
+                  ngx-datatable-cell-template
+                  let-value="value"
+                  let-row="row">
+                  <div>
+                    {{ value }}
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="libelle">
+                <ng-template ngx-datatable-header-template let-sort="sortFn">
+                  <span>{{ "Justifiée" | translate }}</span>
+                </ng-template>
+                <ng-template
+                  ngx-datatable-cell-template
+                  let-value="value"
+                  let-row="row">
+                  <div>
+                    {{ value }}
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="libelle">
+                <ng-template ngx-datatable-header-template let-sort="sortFn">
+                  <span>{{ "Motif" | translate }}</span>
+                </ng-template>
+                <ng-template
+                  ngx-datatable-cell-template
+                  let-value="value"
+                  let-row="row">
+                  <div>
+                    {{ value }}
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="libelle">
+                <ng-template ngx-datatable-header-template let-sort="sortFn">
+                  <span>{{ "Commentaire" | translate }}</span>
+                </ng-template>
+                <ng-template
+                  ngx-datatable-cell-template
+                  let-value="value"
+                  let-row="row">
+                  <div>
+                    {{ value }}
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable>
+          </div>
+        </div>
+      </mat-tab>
+
+      <mat-tab label="{{ 'Sanctions' | translate }}">
+
+        <!-- Tableau groupe user -->
+        <div fxLayout="column">
+          <div class="prefix-css">
+            <ngx-datatable
+              class="material striped"
+              [headerHeight]="25"
+              [columnMode]="ColumnMode.force"
+              [footerHeight]="35"
+              [rowHeight]="'auto'"
+              [rows]
+              [limit]="nbligne"
+              [selected]
+              [selectionType]="SelectionType.checkbox"
+              [selectAllRowsOnPage]="false">
+              <ngx-datatable-column
+                [width]="30"
+                [sortable]="false"
+                [canAutoResize]="false"
+                [draggable]="false"
+                [resizeable]="false"
+                [headerCheckboxable]="false"
+                [checkboxable]="false">
+              </ngx-datatable-column>
+
+              <ngx-datatable-column
+                prop="code">
+                <ng-template ngx-datatable-header-template let-sort="sortFn">
+                  <span>{{ "Sanction" | translate }}</span>
+                </ng-template>
+                <ng-template
+                  ngx-datatable-cell-template
+                  let-value="value"
+                  let-row="row">
+                  <div>
+                    {{ value }}
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="libelle">
+                <ng-template ngx-datatable-header-template let-sort="sortFn">
+                  <span>{{ "Date" | translate }}</span>
+                </ng-template>
+                <ng-template
+                  ngx-datatable-cell-template
+                  let-value="value"
+                  let-row="row">
+                  <div>
+                    {{ value }}
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="libelle">
+                <ng-template ngx-datatable-header-template let-sort="sortFn">
+                  <span>{{ "Motif" | translate }}</span>
+                </ng-template>
+                <ng-template
+                  ngx-datatable-cell-template
+                  let-value="value"
+                  let-row="row">
+                  <div>
+                    {{ value }}
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="libelle">
+                <ng-template ngx-datatable-header-template let-sort="sortFn">
+                  <span>{{ "Sanctionné par" | translate }}</span>
+                </ng-template>
+                <ng-template
+                  ngx-datatable-cell-template
+                  let-value="value"
+                  let-row="row">
+                  <div>
+                    {{ value }}
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="libelle">
+                <ng-template ngx-datatable-header-template let-sort="sortFn">
+                  <span>{{ "Commentaire" | translate }}</span>
+                </ng-template>
+                <ng-template
+                  ngx-datatable-cell-template
+                  let-value="value"
+                  let-row="row">
+                  <div>
+                    {{ value }}
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="libelle">
+                <ng-template ngx-datatable-header-template let-sort="sortFn">
+                  <span>{{ "Date de déroulement" | translate }}</span>
+                </ng-template>
+                <ng-template
+                  ngx-datatable-cell-template
+                  let-value="value"
+                  let-row="row">
+                  <div>
+                    {{ value }}
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  width: 48%; // Ajustez la largeur selon vos besoins
+
+  .mat-button-toggle-group {
+    display: flex;
+    flex-direction: column;
+
+    .page-title {
+      font-size: 14px;
+      text-align: left;
+      margin-bottom: 10px; // Ajustez la marge selon vos besoins
+    }
+  }
+
+  .data-container {
+    display: flex;
+    flex-direction: column;
+
+    div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+
+      &:not(:last-child) {
+        margin-bottom: 10px; // Espace entre chaque paire titre-valeur
+      }
+
+      div:first-child {
+        font-weight: bold;
+        text-align: left;
+      }
+
+      div:last-child {
+        text-align: right;
+      }
+    }
+  }
+}
+
+.full-width-header {
+  background-color: rgb(68, 110, 177);
+  color: white;
+  margin: 0;
+  /* Supprime les marges */
+  padding: 0 16px;
+  /* Ajuste les paddings */
+  width: calc(100% + 32px);
+  /* Assure que la largeur prend en compte les paddings/marges */
+  transform: translateX(-16px);
+  /* Ajuste la position */
+  box-sizing: border-box;
+  /* Inclut le padding et la bordure dans la largeur */
+  display: flex;
+  /* Utilise Flexbox pour aligner les éléments */
+  align-items: center;
+  /* Aligne les éléments verticalement */
+}
+.mat-card{
+  padding: 0px !important;
+}

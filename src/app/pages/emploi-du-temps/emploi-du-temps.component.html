@@ -1,0 +1,62 @@
+<!-- Par semaine -->
+<div fxLayout="row" fxLayoutAlign="space-between center" class="flex-p">
+  <div fxLayout="column" fxFlex="100">
+    <mat-button-toggle-group
+      #controls="matButtonToggleGroup"
+      appearance="legacy">
+      <div fxLayout="row" fxFlex="100" fxLayoutAlign="start center">
+        <div fxFlex="100" fxLayout="column">
+          <mat-label class="page-title">{{ "Emploi du temps" | translate
+            }}</mat-label>
+        </div>
+      </div>
+    </mat-button-toggle-group>
+  </div>
+</div>
+<div class="tab-card">
+  <div class="mat-elevation-z2" fxLayout="column" class="flex-p">
+    <div fxLayout="column" fxFlex="100">
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 150px;">Jour</th>
+            <th>Matin</th>
+            <th>Soir</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Lundi</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Mardi</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Mercredi</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Jeudi</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Vendredi</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Samedi</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

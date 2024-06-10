@@ -1,0 +1,42 @@
+<div fxLayout="row" class="app-info">
+  <img
+    src="../assets/img/users/str.png"
+    alt="user-image"
+    width="50"
+    height="50" />
+  <div class fxLayout="row">
+    MYWEBSCHOOL
+  </div>
+</div>
+<div fxLayout="column" fxLayoutAlign="center center"
+  class="user-block transition-2"
+  [class.show]="settings.sidenavUserBlock">
+  <div *ngIf="settings.menuType != 'mini'" fxLayout="row"
+    fxLayoutAlign="space-around center"
+    class="w-100 muted-text">
+    <img
+      [src]="userImage"
+      alt="user-image"
+      width="50"
+      height="50"
+      class="rounded mat-elevation-z6" />
+    <div class="container">
+      <p class="text-left text-black texte-taille1">{{code}}</p>
+      <p class="text-left text-black texte-taille1">{{name}}</p>
+      <div class="text-left text-black">
+      </div>
+    </div>
+  </div>
+  <div *ngIf="settings.menuType != 'mini'" fxLayout="row"
+    fxLayoutAlign="space-around center"
+    class="w-100 muted-text" style="margin-top: 8px;">
+    <div>
+    </div>
+  </div>
+</div>
+<perfect-scrollbar class="sidenav-menu-outer"
+  [class.user-block-show]="settings.sidenavUserBlock">
+  <div id="vertical-menu">
+    <app-vertical-menu [menuParentId]="0"></app-vertical-menu>
+  </div>
+</perfect-scrollbar>

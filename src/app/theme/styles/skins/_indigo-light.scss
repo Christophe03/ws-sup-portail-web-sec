@@ -1,0 +1,116 @@
+@use '@angular/material' as mat;
+$ms-primary: (
+  30: #40ff17,
+  40: #e1e1e1,
+  50: #ecf1f8,
+  100: #cfdcee,
+  200: #b0c5e3,
+  300: #90aed7,
+  400: #789ccf,
+  500: #608bc6,
+  600: #5883c0,
+  700: #4e78b9,
+  800: #446eb1,
+  900: #335ba4,
+  A100: #edf3ff,
+  A200: #bad1ff,
+  A400: #87afff,
+  A700: #6e9eff,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  )
+);
+$ms-secondary: (
+  30: #242424,
+  40: #e1e1e1,
+  50: #fdf5ec,
+  100: #fae6cf,
+  200: #f7d6b0,
+  300: #f4c690,
+  400: #f1b978,
+  500: #efad60,
+  600: #eda658,
+  700: #eb9c4e,
+  800: #e89344,
+  900: #e48333,
+  A100: #ffffff,
+  A200: #fffaf6,
+  A400: #ffddc3,
+  A700: #ffcfaa,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  )
+);
+
+$ms-green: (
+  50: #e7efe4,
+  100: #c3d6bb,
+  200: #9cbb8e,
+  300: #749f61,
+  400: #568b3f,
+  500: #38761d,
+  600: #326e1a,
+  700: #2b6315,
+  800: #245911,
+  900: #17460a,
+  A100: #94ff7d,
+  A200: #6aff4a,
+  A400: #40ff17,
+  A700: #2dfc00,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  )
+);
+$indigo-light-primary: mat.define-palette($ms-primary, 800, 300, 900);
+$indigo-light-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$indigo-light-warn: mat.define-palette(mat.$red-palette, 500);
+$indigo-light-green: mat.define-palette($ms-green, 500);
+
+$indigo-light-theme: mat.define-light-theme((
+  color: (
+    primary: $indigo-light-primary,
+    accent: $indigo-light-accent,
+    warn: $indigo-light-warn,
+    green: $indigo-light-green
+  )
+));
+// $indigo-light-theme: mat.define-light-theme($indigo-light-primary, $indigo-light-accent, $indigo-light-warn);

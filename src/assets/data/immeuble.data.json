@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "nom": "Résidence Traoré",
+    "proprietaireId": 1,
+    "proprietaire": {
+      "id": 1,
+      "nom": "Traoré Mahamadou",
+      "telephone": "75757575",
+      "email": "traore.mahamadou@gmail.com",
+      "adresse": "Bamako",
+      "ville": "Bamako",
+      "pays": "Mali",
+      "contactUrgence": "Oumar Traoré: 45454545"
+    },
+    "pays": "Mali",
+    "region": "Bamako",
+    "ville": "Hamdallaye",
+    "adresse": "Hamdallaye ACI 2000",
+    "autresInfo": ""
+  }
+]

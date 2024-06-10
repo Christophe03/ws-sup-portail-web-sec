@@ -1,0 +1,12 @@
+[
+    {
+        "login": "admin",
+        "id": 1,
+        "mdp": "GIT555",
+        "nom": "Administrateur",
+        "prenom": "",
+        "email": "admin@gmail.com",
+        "patronyme": "Administrateur",
+        "langue": "fr"
+    }
+]

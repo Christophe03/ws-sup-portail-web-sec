@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ws-portail-sup": {
+      "hosting": {
+        "agence-imo-frontend": [
+          "ws-portail-sup"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ws-portail-sup"
+  }
+}

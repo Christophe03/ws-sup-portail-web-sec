@@ -1,0 +1,45 @@
+<button class="close" mat-button (click)="closeDialog()">X</button>
+<h2 class="mat-dialog-title" style="margin-bottom: 10px">
+  {{ title | translate }}
+</h2>
+
+<div class="tab-card">
+  <div fxFlex="100" fxLayout="column" class="flex-p">
+    <div fxFlex="100" fxLayout="row" fxLayoutAlign="center center">
+      <div [innerHTML]="info"></div>
+    </div>
+    <div fxFlex="100" fxLayout="row" fxLayoutAlign="center center">
+      <div style="font-style: italic">({{ libelle }})</div>
+    </div>
+    <div fxFlex="100" fxLayout="row" fxLayoutAlign="center start">
+      <div fxLayout="column" fxFlex="100">
+        <mat-form-field appearance="outline">
+          <textarea
+            [disabled]="!modif"
+            matInput
+            [(ngModel)]="returnValue"
+            [placeholder]="placeholderMessage"
+            rows="7"
+          ></textarea>
+          <!-- <input
+            matInput
+            placeholder="{{ 'recherche...' | translate }}"
+            [(ngModel)]="missionKey"
+          /> -->
+        </mat-form-field>
+      </div>
+    </div>
+    <div
+      fxFlex="100"
+      fxLayout="row"
+      fxLayoutAlign="center center"
+      *ngIf="modif"
+    >
+      <div fxFlex="49" fxLayout="column" fxLayoutAlign="center stretch">
+        <button mat-raised-button (click)="valider()" color="primary">
+          {{ "modifier" | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

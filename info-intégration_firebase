@@ -1,0 +1,15 @@
+# 1: Créer le projet sur votre firebase
+# 2 : Se logger sur firebase CLI ( firebase logout pour se decoonecter; firebase login pour se logguer en choisissannt le bon compte google)
+# 3: ng add @angular/fire : pour ajouter et configuer firebase
+
+
+
+
+LIEN DE REFERENCE:
+
+# 1: https://developers.google.com/codelabs/building-a-web-app-with-angular-and-firebase?hl=fr#9
+
+
+# 2: https://firebase.google.com/docs/firestore/quickstart?hl=fr#web-modular-api_4
+
+# 3: https://firebase.google.com/docs/firestore/query-data/get-data?hl=fr

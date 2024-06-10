@@ -1,0 +1,296 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" class="flex-p">
+  <div fxLayout="column" fxFlex="100">
+    <mat-button-toggle-group
+      #controls="matButtonToggleGroup"
+      appearance="legacy">
+      <div fxLayout="row" fxFlex="100" fxLayoutAlign="start center">
+        <div fxFlex="100" fxLayout="column">
+          <mat-label class="page-title">Mes documents</mat-label>
+        </div>
+      </div>
+    </mat-button-toggle-group>
+  </div>
+</div>
+
+<div fxLayout="column" fxLayoutAlign="space-between stretch" class="flex-p">
+  <!-- Première rangée de composants -->
+  <div fxLayout="row" fxLayoutAlign="space-between stretch" fxFlex="48">
+    <!-- Bloc Administratif -->
+    <div fxLayout="column" fxFlex="48">
+      <mat-button-toggle-group #controls="matButtonToggleGroup"
+        appearance="legacy">
+        <div fxLayout="row" fxFlex="100" fxLayoutAlign="start center">
+          <div fxFlex="100" fxLayout="column">
+            <mat-label class="page-title">{{ 'Administratif' | translate
+              }}</mat-label>
+          </div>
+        </div>
+      </mat-button-toggle-group>
+      <div fxLayout="column">
+
+        <div class="prefix-css">
+          <ngx-datatable
+            class="material striped"
+            [headerHeight]="25"
+            [columnMode]="ColumnMode.force"
+            [footerHeight]="35"
+            [rowHeight]="'auto'"
+            [rows]
+            [limit]="nbligne"
+            [selected]
+            [selectionType]="SelectionType.checkbox"
+            [selectAllRowsOnPage]="false">
+            <ngx-datatable-column
+              [width]="30"
+              [sortable]="false"
+              [canAutoResize]="false"
+              [draggable]="false"
+              [resizeable]="false"
+              [headerCheckboxable]="false"
+              [checkboxable]="false">
+            </ngx-datatable-column>
+
+            <ngx-datatable-column
+              prop="document">
+              <ng-template ngx-datatable-header-template
+                let-sort="sortFn">
+                <span>{{ "Document" | translate }}</span>
+              </ng-template>
+              <ng-template
+                ngx-datatable-cell-template
+                let-value="value"
+                let-row="row">
+                <div>
+                  {{ row.document }}
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column prop="date">
+              <ng-template ngx-datatable-header-template
+                let-sort="sortFn">
+                <span>{{ "Date de Mise en ligne" | translate }}</span>
+              </ng-template>
+              <ng-template
+                ngx-datatable-cell-template
+                let-value="value"
+                let-row="row">
+                <div>
+                  {{ row.date }}
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+          </ngx-datatable>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bloc Vie Scolaire -->
+    <div fxLayout="column" fxFlex="48">
+      <mat-button-toggle-group #controls="matButtonToggleGroup"
+        appearance="legacy">
+        <div fxLayout="row" fxFlex="100" fxLayoutAlign="start center">
+          <div fxFlex="100" fxLayout="column">
+            <mat-label class="page-title">{{ 'Vie Scolaire' | translate
+              }}</mat-label>
+          </div>
+        </div>
+      </mat-button-toggle-group>
+      <div fxLayout="column">
+
+        <div class="prefix-css">
+          <ngx-datatable
+            class="material striped"
+            [headerHeight]="25"
+            [columnMode]="ColumnMode.force"
+            [footerHeight]="35"
+            [rowHeight]="'auto'"
+            [rows]
+            [limit]="nbligne"
+            [selected]
+            [selectionType]="SelectionType.checkbox"
+            [selectAllRowsOnPage]="false">
+            <ngx-datatable-column
+              [width]="30"
+              [sortable]="false"
+              [canAutoResize]="false"
+              [draggable]="false"
+              [resizeable]="false"
+              [headerCheckboxable]="false"
+              [checkboxable]="false">
+            </ngx-datatable-column>
+
+            <ngx-datatable-column
+              prop="document">
+              <ng-template ngx-datatable-header-template
+                let-sort="sortFn">
+                <span>{{ "Document" | translate }}</span>
+              </ng-template>
+              <ng-template
+                ngx-datatable-cell-template
+                let-value="value"
+                let-row="row">
+                <div>
+                  {{ row.document }}
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column prop="date">
+              <ng-template ngx-datatable-header-template
+                let-sort="sortFn">
+                <span>{{ "Date de Mise en ligne" | translate }}</span>
+              </ng-template>
+              <ng-template
+                ngx-datatable-cell-template
+                let-value="value"
+                let-row="row">
+                <div>
+                  {{ row.date }}
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+          </ngx-datatable>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Deuxième rangée de composants -->
+  <div fxLayout="row" fxLayoutAlign="space-between stretch" fxFlex="48">
+    <!-- Bloc Notes -->
+    <div fxLayout="column" fxFlex="48">
+      <mat-button-toggle-group #controls="matButtonToggleGroup"
+        appearance="legacy">
+        <div fxLayout="row" fxFlex="100" fxLayoutAlign="start center">
+          <div fxFlex="100" fxLayout="column">
+            <mat-label class="page-title">{{ 'Notes' | translate }}</mat-label>
+          </div>
+        </div>
+      </mat-button-toggle-group>
+      <div fxLayout="column">
+
+        <div class="prefix-css">
+          <ngx-datatable
+            class="material striped"
+            [headerHeight]="25"
+            [columnMode]="ColumnMode.force"
+            [footerHeight]="35"
+            [rowHeight]="'auto'"
+            [rows]
+            [limit]="nbligne"
+            [selected]
+            [selectionType]="SelectionType.checkbox"
+            [selectAllRowsOnPage]="false">
+            <ngx-datatable-column
+              [width]="30"
+              [sortable]="false"
+              [canAutoResize]="false"
+              [draggable]="false"
+              [resizeable]="false"
+              [headerCheckboxable]="false"
+              [checkboxable]="false">
+            </ngx-datatable-column>
+
+            <ngx-datatable-column
+              prop="document">
+              <ng-template ngx-datatable-header-template
+                let-sort="sortFn">
+                <span>{{ "Document" | translate }}</span>
+              </ng-template>
+              <ng-template
+                ngx-datatable-cell-template
+                let-value="value"
+                let-row="row">
+                <div>
+                  {{ row.document }}
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column prop="date">
+              <ng-template ngx-datatable-header-template
+                let-sort="sortFn">
+                <span>{{ "Date de Mise en ligne" | translate }}</span>
+              </ng-template>
+              <ng-template
+                ngx-datatable-cell-template
+                let-value="value"
+                let-row="row">
+                <div>
+                  {{ row.date }}
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+          </ngx-datatable>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bloc Factures -->
+    <div fxLayout="column" fxFlex="48">
+      <mat-button-toggle-group #controls="matButtonToggleGroup"
+        appearance="legacy">
+        <div fxLayout="row" fxFlex="100" fxLayoutAlign="start center">
+          <div fxFlex="100" fxLayout="column">
+            <mat-label class="page-title">{{ 'Factures' | translate
+              }}</mat-label>
+          </div>
+        </div>
+      </mat-button-toggle-group>
+      <div fxLayout="column">
+
+        <div class="prefix-css">
+          <ngx-datatable
+            class="material striped"
+            [headerHeight]="25"
+            [columnMode]="ColumnMode.force"
+            [footerHeight]="35"
+            [rowHeight]="'auto'"
+            [rows]
+            [limit]="nbligne"
+            [selected]
+            [selectionType]="SelectionType.checkbox"
+            [selectAllRowsOnPage]="false">
+            <ngx-datatable-column
+              [width]="30"
+              [sortable]="false"
+              [canAutoResize]="false"
+              [draggable]="false"
+              [resizeable]="false"
+              [headerCheckboxable]="false"
+              [checkboxable]="false">
+            </ngx-datatable-column>
+
+            <ngx-datatable-column
+              prop="document">
+              <ng-template ngx-datatable-header-template
+                let-sort="sortFn">
+                <span>{{ "Document" | translate }}</span>
+              </ng-template>
+              <ng-template
+                ngx-datatable-cell-template
+                let-value="value"
+                let-row="row">
+                <div>
+                  {{ row.document }}
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column prop="date">
+              <ng-template ngx-datatable-header-template
+                let-sort="sortFn">
+                <span>{{ "Date de Mise en ligne" | translate }}</span>
+              </ng-template>
+              <ng-template
+                ngx-datatable-cell-template
+                let-value="value"
+                let-row="row">
+                <div>
+                  {{ row.date }}
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+          </ngx-datatable>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

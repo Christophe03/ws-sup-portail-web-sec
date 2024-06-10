@@ -1,0 +1,15 @@
+[
+
+  {
+    "id": 1,
+    "code": "M1",
+    "title": "tableau.de.bord",
+    "routerLink": "",
+    "href": "",
+    "icon": "",
+    "target": "",
+    "hasSubMenu": false,
+    "parentId": null,
+    "actions": null
+  }
+]

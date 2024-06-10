@@ -1,0 +1,26 @@
+<!-- <h2 style="margin-bottom: 10px">
+  
+</h2> -->
+<!-- <div> -->
+<div *ngIf="entete != null" [innerHTML]="entete"></div>
+
+<div
+  *ngIf="entete != null"
+  style="text-align: left"
+  [innerHTML]="message"
+></div>
+<div *ngIf="entete == null" [innerHTML]="message"></div>
+<!-- <div class="dismiss">
+        <button mat-icon-button (click)="snackBarRef.dismiss()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div> -->
+<button
+  *ngIf="data.canClose"
+  style="border: 1px solid white; border-radius: 5px; margin-top: 10px"
+  mat-button
+  (click)="close()"
+>
+  {{ fermer }}
+</button>
+<!-- </div> -->

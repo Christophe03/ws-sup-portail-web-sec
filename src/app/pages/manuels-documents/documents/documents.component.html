@@ -1,0 +1,352 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" class="flex-p">
+  <div fxLayout="column" fxFlex="100">
+    <mat-button-toggle-group
+      #controls="matButtonToggleGroup"
+      appearance="legacy">
+      <div fxLayout="row" fxFlex="100" fxLayoutAlign="start center">
+        <div fxFlex="100" fxLayout="column">
+          <mat-label class="page-title">{{
+            "commanditaires.financements" |
+            translate }}
+          </mat-label>
+        </div>
+      </div>
+    </mat-button-toggle-group>
+  </div>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="space-between center" class="flex-p">
+  <div fxLayout="column" fxFlex="100">
+    <mat-tab-group>
+      <mat-tab label="{{ 'Bailleurs' | translate }}">
+        <div fxLayout="row" fxLayoutAlign="space-between center" class>
+          <div fxLayout="column" fxFlex="100">
+            <mat-button-toggle-group
+              #controls="matButtonToggleGroup"
+              appearance="legacy">
+              <div
+                fxLayout="row"
+                fxFlex="5"
+                fxLayoutAlign="start center"
+                class="page-title">
+                <button
+                  mat-icon-button
+                  color="primary"
+                  matTooltip="{{ 'creer' | translate }}">
+                  <mat-icon>add_circle</mat-icon>
+                </button>
+              </div>
+              <div fxLayout="row" fxFlex="85"
+                fxLayoutAlign="start center">
+                <form class="list-search">
+                  <mat-form-field appearance="outline">
+                    <input
+                      matInput
+                      placeholder="{{ 'recherche...' | translate }}" />
+                  </mat-form-field>
+                </form>
+              </div>
+              <div fxFlex="15" fxLayout="column" class="px-1">
+                <div class="list-search">
+                  <mat-form-field appearance="outline">
+                    <mat-select
+                      placeholder="{{ 'statut' | translate }}"
+                      [(ngModel)]="fw.statut">
+                      <mat-option value="-">{{
+                        "toutes.les.statuts" | translate
+                        }}</mat-option>
+                      <mat-option
+                        [value]>
+                        libelle
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div fxLayout="row" fxFlex="10"
+                fxLayoutAlign="end center">
+                <input
+                  hidden
+                  type="file"
+                  #fileInputBailleur
+                  accept=".xlsx" />
+                <button
+                  (click)="fileInputBailleur.click()"
+                  mat-icon-button
+                  color="primary"
+                  matTooltip="{{ 'importer' | translate }}">
+                  <mat-icon>upload</mat-icon>
+                </button>
+
+                <button
+                  mat-icon-button
+                  color="primary"
+                  matTooltip="{{ 'imprimer' | translate }}">
+                  <mat-icon>print</mat-icon>
+                </button>
+                <button
+                  mat-icon-button
+                  color="primary"
+                  matTooltip="{{ 'supprimer' | translate }}">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </mat-button-toggle-group>
+          </div>
+        </div>
+        <!-- Tableau -->
+        <div fxLayout="column">
+          <div class="prefix-css">
+            <ngx-datatable
+              class="material striped"
+              [headerHeight]="25"
+              [columnMode]="ColumnMode.force"
+              [footerHeight]="35"
+              [rowHeight]="'auto'"
+              [rows]
+              [limit]="nbligne"
+              [selected]
+              [selectionType]="SelectionType.checkbox"
+              [selectAllRowsOnPage]="false">
+              <ngx-datatable-column
+                [width]="30"
+                [sortable]="false"
+                [canAutoResize]="false"
+                [draggable]="false"
+                [resizeable]="false"
+                [headerCheckboxable]="true"
+                [checkboxable]="true">
+              </ngx-datatable-column>
+
+              <ngx-datatable-column
+                [width]="150"
+                [canAutoResize]="false"
+                prop="code">
+                <ng-template ngx-datatable-header-template
+                  let-sort="sortFn">
+                  <span>{{ "Code" | translate }}</span>
+                </ng-template>
+                <ng-template
+                  ngx-datatable-cell-template
+                  let-value="value"
+                  let-row="row">
+                  <div>
+                    {{ value }}
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="libelle">
+                <ng-template ngx-datatable-header-template
+                  let-sort="sortFn">
+                  <span>{{ "Nom" | translate }}</span>
+                </ng-template>
+                <ng-template
+                  ngx-datatable-cell-template
+                  let-value="value"
+                  let-row="row">
+                  <div>
+                    {{ value }}
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column
+                [width]="100"
+                [canAutoResize]="false"
+                prop="statut"
+                [sortable]="false">
+                <ng-template ngx-datatable-header-template>
+                  <span>{{ "statut" | translate }}</span>
+                </ng-template>
+                <ng-template
+                  ngx-datatable-cell-template
+                  let-value="value"
+                  let-row="row">
+                  <div class="datatable-box-chip">
+                    <mat-chip-list
+                      aria-orientation="horizontal">
+                      <mat-chip
+                        *ngIf="value === '1'"
+                        [style.background-color]="'#a0eeb2'">
+                        {{ "actif" | translate }}
+                      </mat-chip>
+                      <mat-chip
+                        *ngIf="value === '0'"
+                        [style.background-color]="'#e66d6d'">
+                        {{ "inactif" | translate }}
+                      </mat-chip>
+                    </mat-chip-list>
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable>
+          </div>
+        </div>
+      </mat-tab>
+
+      <mat-tab label="{{ 'Commanditaires' | translate }}">
+        <div fxLayout="row" fxLayoutAlign="space-between center" class>
+          <div fxLayout="column" fxFlex="100">
+            <mat-button-toggle-group
+              #controls="matButtonToggleGroup"
+              appearance="legacy">
+              <div
+                fxLayout="row"
+                fxFlex="5"
+                fxLayoutAlign="start center"
+                class="page-title">
+                <button
+                  mat-icon-button
+                  color="primary"
+                  matTooltip="{{ 'creer' | translate }}">
+                  <mat-icon>add_circle</mat-icon>
+                </button>
+              </div>
+              <div fxLayout="row" fxFlex="85"
+                fxLayoutAlign="start center">
+                <form class="list-search">
+                  <mat-form-field appearance="outline">
+                    <input
+                      matInput
+                      placeholder="{{ 'recherche...' | translate }}" />
+                  </mat-form-field>
+                </form>
+              </div>
+              <div fxFlex="15" fxLayout="column" class="px-1">
+                <div class="list-search">
+                  <mat-form-field appearance="outline">
+                    <mat-select
+                      placeholder="{{ 'statut' | translate }}"
+                      [(ngModel)]="fw.statut">
+                      <mat-option value="-">{{
+                        "toutes.les.statuts" | translate
+                        }}</mat-option>
+                      <mat-option
+                        [value]>
+                        libelle
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div fxLayout="row" fxFlex="10"
+                fxLayoutAlign="end center">
+                <input
+                  hidden
+                  type="file"
+                  #fileInputCommanditaire
+                  accept=".xlsx" />
+                <button
+                  (click)="fileInputCommanditaire.click()"
+                  mat-icon-button
+                  color="primary"
+                  matTooltip="{{ 'importer' | translate }}">
+                  <mat-icon>upload</mat-icon>
+                </button>
+
+                <button
+                  mat-icon-button
+                  color="primary"
+                  matTooltip="{{ 'imprimer' | translate }}">
+                  <mat-icon>print</mat-icon>
+                </button>
+              </div>
+              <button
+                mat-icon-button
+                color="primary"
+                matTooltip="{{ 'supprimer' | translate }}">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-button-toggle-group>
+          </div>
+        </div>
+        <!-- Tableau groupe user -->
+        <div fxLayout="column">
+          <div class="prefix-css">
+            <ngx-datatable
+              class="material striped"
+              [headerHeight]="25"
+              [columnMode]="ColumnMode.force"
+              [footerHeight]="35"
+              [rowHeight]="'auto'"
+              [rows]
+              [limit]="nbligne"
+              [selected]
+              [selectionType]="SelectionType.checkbox"
+              [selectAllRowsOnPage]="false">
+              <ngx-datatable-column
+                [width]="30"
+                [sortable]="false"
+                [canAutoResize]="false"
+                [draggable]="false"
+                [resizeable]="false"
+                [headerCheckboxable]="true"
+                [checkboxable]="true">
+              </ngx-datatable-column>
+
+              <ngx-datatable-column
+                [width]="150"
+                [canAutoResize]="false"
+                prop="code">
+                <ng-template ngx-datatable-header-template
+                  let-sort="sortFn">
+                  <span>{{ "Code" | translate }}</span>
+                </ng-template>
+                <ng-template
+                  ngx-datatable-cell-template
+                  let-value="value"
+                  let-row="row">
+                  <div>
+                    {{ value }}
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="libelle">
+                <ng-template ngx-datatable-header-template
+                  let-sort="sortFn">
+                  <span>{{ "Nom" | translate }}</span>
+                </ng-template>
+                <ng-template
+                  ngx-datatable-cell-template
+                  let-value="value"
+                  let-row="row">
+                  <div>
+                    {{ value }}
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column
+                [width]="100"
+                [canAutoResize]="false"
+                prop="statut"
+                [sortable]="false">
+                <ng-template ngx-datatable-header-template>
+                  <span>{{ "statut" | translate }}</span>
+                </ng-template>
+                <ng-template
+                  ngx-datatable-cell-template
+                  let-value="value"
+                  let-row="row">
+                  <div class="datatable-box-chip">
+                    <mat-chip-list
+                      aria-orientation="horizontal">
+                      <mat-chip
+                        *ngIf="value === '1'"
+                        [style.background-color]="'#a0eeb2'">
+                        {{ "actif" | translate }}
+                      </mat-chip>
+                      <mat-chip
+                        *ngIf="value === '0'"
+                        [style.background-color]="'#e66d6d'">
+                        {{ "inactif" | translate }}
+                      </mat-chip>
+                    </mat-chip-list>
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

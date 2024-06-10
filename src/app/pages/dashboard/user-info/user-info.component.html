@@ -1,0 +1,197 @@
+<div class="tab-card">
+  <mat-tab-group>
+    <mat-tab label="{{ 'profil' | translate }}">
+      <form [formGroup]="form" class="no-error">
+        <div fxFlex="100" fxLayout="row" class="flex-p">
+          <div fxFlex="100" fxLayout="column">
+            <div fxFlex="100" fxLayout="row">
+              <div fxFlex="48" fxLayout="column">
+                <mat-form-field appearance="outline">
+                  <mat-label>{{ "prenom" | translate }}</mat-label>
+                  <input
+                    name="prenom"
+                    formControlName="prenom"
+                    matInput
+                    placeholder="prenom"
+                    required />
+                  <!-- <mat-error *ngIf="form.controls.prenom.errors?.required">
+                    <div
+                      [innerHTML]="
+                        'error.is.required'
+                          | translate : { f: 'prenom' | translate }
+                      "
+                    ></div>
+                  </mat-error> -->
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>{{ "nom" | translate }}</mat-label>
+                  <input
+                    name="nom"
+                    formControlName="nom"
+                    matInput
+                    placeholder="Nom"
+                    required />
+                  <!-- <mat-error *ngIf="form.controls.nom.errors?.required">
+                    <div
+                      [innerHTML]="
+                        'error.is.required'
+                          | translate : { f: 'nom' | translate }
+                      "
+                    ></div>
+                  </mat-error> -->
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>{{ "pseudo" | translate }}</mat-label>
+                  <input name="pseudo" formControlName="pseudo" matInput />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>{{ "email" | translate }}</mat-label>
+                  <input
+                    name="email"
+                    formControlName="email"
+                    matInput
+                    required />
+                  <!-- <mat-error *ngIf="form.controls.email.errors?.required">
+                    <div
+                      [innerHTML]="
+                        'error.is.required'
+                          | translate : { f: 'email' | translate }
+                      "
+                    ></div>
+                  </mat-error> -->
+                  <!-- <mat-error
+
+                      form.controls['email'].errors['pattern']
+                    "
+                  >
+                    <div [innerHTML]="'error.email.invalid' | translate"></div>
+                  </mat-error>
+                  <mat-error *ngIf="form.controls.email.errors?.findDuplicate">
+                    <div
+                      [innerHTML]="
+                        'error.email.exist'
+                          | translate : { f: form.controls.email.value }
+                      "
+                    ></div>
+                  </mat-error> -->
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>{{ "langue" | translate }}</mat-label>
+                  <mat-select
+                    placeholder="{{ 'langue' | translate }}"
+                    formControlName="langue">
+                    <!-- <mat-option
+                      *ngFor="let element of langues"
+                      [value]="element.langue"
+                    >
+                      {{ element.langueLib }}
+                    </mat-option> -->
+                  </mat-select>
+                </mat-form-field>
+                <div fxFlex="100" fxLayout="row">
+                  <div fxFlex="20" fxLayout="column">
+                    <button
+                      mat-raised-button
+                      color="primary"
+                      (click)="update()"
+                      [disabled]="!form.valid">
+                      {{ "modifier" | translate }}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </mat-tab>
+    <mat-tab label="{{ 'identifiants' | translate }}">
+      <form [formGroup]="form2" class="no-error">
+        <div fxFlex="100" fxLayout="row" class="flex-p">
+          <div fxFlex="100" fxLayout="column">
+            <div fxFlex="100" fxLayout="row">
+              <div fxFlex="25" fxLayout="column">
+                <mat-form-field appearance="outline">
+                  <mat-label>Login</mat-label>
+                  <input
+                    name="login"
+                    formControlName="login"
+                    readonly
+                    matInput />
+                  <mat-icon matSuffix>account_box</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                  <mat-label>Ancien mot de passe</mat-label>
+                  <input
+                    type="password"
+                    matInput
+                    maxlength="250"
+                    formControlName="apwd" />
+                  <mat-icon matSuffix>vpn_key</mat-icon>
+                  <mat-error
+                    *ngIf="
+                      form2.controls['apwd'].dirty &&
+                      !form2.controls['apwd'].valid &&
+                      form2.controls['apwd'].errors['required']
+                    ">
+                    ancien mot de passe est obligatoire
+                  </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Nouveau mot de passe</mat-label>
+                  <input
+                    type="password"
+                    matInput
+                    maxlength="250"
+                    formControlName="npwd" />
+                  <mat-icon matSuffix>vpn_key</mat-icon>
+                  <mat-error
+                    *ngIf="
+                      form2.controls['npwd'].dirty &&
+                      !form2.controls['npwd'].valid &&
+                      form2.controls['npwd'].errors['required']
+                    ">
+                    nouveau mot de passe est obligatoire
+                  </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Confirmer nouveau mot de passe</mat-label>
+                  <input
+                    type="password"
+                    matInput
+                    maxlength="250"
+                    formControlName="cpwd" />
+                  <mat-icon matSuffix>vpn_key</mat-icon>
+                  <!-- <mat-error
+                    *ngIf="
+                      form2.controls['cpwd'].dirty &&
+                      form2.controls['cpwd'].errors['required']
+                    "
+                  >
+                    confirmer nouveau mot de passe est obligatoire
+                  </mat-error>
+                  <mat-error *ngIf="form2.controls.cpwd.errors?.MatchPassword">
+                    Mot de passe <strong>incorrect</strong>
+                  </mat-error> -->
+                </mat-form-field>
+
+                <div fxFlex="100" fxLayout="row">
+                  <div fxFlex="50" fxLayout="column">
+                    <button
+                      mat-raised-button
+                      color="primary"
+                      (click)="initPwd()"
+                      [disabled]="!form2.valid">
+                      {{ "modifier" | translate }}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </mat-tab>
+  </mat-tab-group>
+</div>

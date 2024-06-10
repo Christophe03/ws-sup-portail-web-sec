@@ -1,0 +1,164 @@
+.mat-chip.info-chip {
+  padding: 4px 8px;
+  min-height: 26px;
+  font-size: 12px;
+  font-weight: 400;
+
+  .mat-icon {
+    margin-right: 4px;
+  }
+}
+
+.title {
+  font-size: 18px;
+}
+/* path: src/app/components/messages/messages.component.css */
+
+.custom-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.timestamp {
+  margin-left: auto;
+  color: #757575;
+}
+
+.mat-card-subtitle {
+  color: #fff !important;
+  font-size: 14px;
+  color: #fff;
+}
+
+.bg-color-blue {
+  background-color: #446eb1
+}
+
+.h-400p {
+  height: 400px;
+}
+
+.select {
+  width: 150px;
+  color: #ffffff;
+  // background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+.chip-date {
+  margin-top: 5px;
+  font-size: 10px;
+  color: #fff;
+  border-radius: 4px;
+  width: 120px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+.chip-date2 {
+  margin-top: 5px;
+  font-size: 10px;
+  color: #fff;
+  border-radius: 4px;
+  width: 90px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+.message-detail {
+  margin-inline-end: 0.5rem;
+  font-size: 0.8em;
+  font-style: italic;
+  color: #818385;
+}
+.custom-card {
+  margin-bottom: 10px;
+  /* Ajoute un espace en bas de chaque carte */
+}
+
+.custom-datatable .datatable-body {
+  overflow-y: hidden;
+  /* Cache la barre de défilement verticale */
+}
+
+.custom-header {
+  display: flex;
+
+}
+.custom-title {
+
+}
+.custom-card:not(:first-child) {
+  margin-top: 10px;
+}
+.custom-card {
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+.custom-card .mat-card-title {
+  margin-top: 10px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+/* Exemple de styles CSS */
+.matiere {
+  font-weight: bold;
+  /* Met la matière en gras */
+}
+
+.salle {
+  font-style: italic;
+  /* Met la salle en italique */
+}
+
+.prof {
+  text-transform: uppercase;
+  /* Met le nom du professeur en majuscules */
+}
+
+.heures {
+  color: blue;
+  /* Donne une couleur bleue aux heures */
+}
+.custom-datatable {
+  width: 100%;
+}
+
+.custom-card {
+  margin-bottom: 10px;
+}
+
+.custom-sender {
+  margin-bottom: 5px;
+}
+
+.custom-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

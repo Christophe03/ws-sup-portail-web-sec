@@ -1,0 +1,8 @@
+<div class="flex-p">
+    <div *ngIf="show" fxLayout="row wrap" fxLayoutAlign="space-between center"
+        class="alert alert-success alert-dismissible fade show flex-p" role="alert">
+        <!-- <label (click)="link()"><strong>{{activite.note |translate}}</strong> : {{activite.resume}}</label> -->
+        <label><strong>Message</strong> : Resume</label>
+        <button class="close" mat-button (click)="closeAlert()">X</button>
+    </div>
+</div>

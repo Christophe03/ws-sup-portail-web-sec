@@ -1,0 +1,38 @@
+@use '@angular/material' as mat;
+
+$gtp-palette-primary: (
+  300: #7d0d1e,
+  800: #7d0d1e,
+  900: #e7b6b6,
+  contrast: (
+   300: white,
+   800: white,
+   900: black,
+ )
+);
+
+$gtp-palette-accent: (
+  300: #ff9900,
+  600: #ff9900,
+  900: #ff9900,
+  contrast: (
+   300: white,
+   600: white,
+   900: white,
+ )
+);
+
+
+$gtp-color-primary: mat.define-palette($gtp-palette-primary, 800, 300, 900);
+// $gtp-color-primary: '#7d0d1e';
+$gtp-color-accent: mat.define-palette($gtp-palette-accent, 600, 300, 900);
+$gtp-color-warn: mat.define-palette(mat.$deep-orange-palette, A400);
+
+$gtp-color-theme: mat.define-light-theme((
+    color: (
+      primary: $gtp-color-primary,
+      accent: $gtp-color-accent,
+      warn: $gtp-color-warn
+    ),
+    density: 0,
+   ));

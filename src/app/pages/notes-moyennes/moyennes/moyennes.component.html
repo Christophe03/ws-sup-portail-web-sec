@@ -1,0 +1,236 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" class="flex-p">
+  <div fxLayout="column" fxFlex="100">
+    <mat-button-toggle-group
+      #controls="matButtonToggleGroup"
+      appearance="legacy">
+      <div fxLayout="row" fxFlex="100" fxLayoutAlign="start center">
+        <div fxFlex="100" fxLayout="column">
+          <mat-label class="page-title">{{
+            "Relevés de notes" |
+            translate }}
+          </mat-label>
+        </div>
+      </div>
+    </mat-button-toggle-group>
+  </div>
+</div>
+<div fxLayout="row" fxLayoutAlign="space-between center" class="flex-p">
+  <div fxLayout="column" fxFlex="100">
+    <mat-tab-group>
+      <mat-tab label="{{ 'Semestre 1' | translate }}">
+        <!-- Tableau -->
+        <div fxLayout="column">
+          <div class="prefix-css">
+            <ngx-datatable
+              class="material striped"
+              [headerHeight]="25"
+              [columnMode]="ColumnMode.force"
+              [footerHeight]="35"
+              [rowHeight]="'auto'"
+              [rows]="rows" 
+              [limit]="nbligne"
+              [selected]
+              [selectionType]="SelectionType.checkbox"
+              [selectAllRowsOnPage]="false">
+              <ngx-datatable-column
+              [width]="600"
+            [canAutoResize]="false"
+                prop="matiere" [sortable]="false">
+                <ng-template ngx-datatable-header-template
+                  let-sort="sortFn">
+                  <span>{{ "matiere" | translate }}</span>
+                </ng-template>
+                <ng-template
+                  ngx-datatable-cell-template
+                  let-value="value"
+                  let-row="row">
+                  <div>
+                    {{ row.matiere }}
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="moyenne" [width]="100" [canAutoResize]="false" [sortable]="false">
+                <ng-template ngx-datatable-header-template
+                  let-sort="sortFn">
+                  <span>{{ "moyenne" | translate }}</span>
+                </ng-template>
+                <ng-template
+                  ngx-datatable-cell-template
+                  let-value="value"
+                  let-row="row">
+                  <div>
+                    {{ row.moyenne }} / {{ row.base }}
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="notes" [sortable]="false">
+                <ng-template ngx-datatable-header-template
+                  let-sort="sortFn">
+                  <span>{{ "evaluations" | translate }}</span>
+                </ng-template>
+                <ng-template
+                  ngx-datatable-cell-template
+                  let-value="value"
+                  let-row="row">
+                  <div *ngFor="let evaluation of row.notes">
+                    (  {{ evaluation.note }} / {{ evaluation.base }} -{{evaluation.type}})
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="classe" [width]="100" [canAutoResize]="false" [sortable]="false">
+                <ng-template ngx-datatable-header-template
+                  let-sort="sortFn">
+                  <span>{{ "classe" | translate }}</span>
+                </ng-template>
+                <ng-template
+                  ngx-datatable-cell-template
+                  let-value="value"
+                  let-row="row">
+                  <div>
+                    {{ row.moy }}/ {{ row.base }}
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="min" [width]="100" [canAutoResize]="false" [sortable]="false">
+                <ng-template ngx-datatable-header-template
+                  let-sort="sortFn">
+                  <span>{{ "min" | translate }}</span>
+                </ng-template>
+                <ng-template
+                  ngx-datatable-cell-template
+                  let-value="value"
+                  let-row="row">
+                  <div>
+                    {{ row.min }}/ {{ row.base }}
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="max" [width]="100" [canAutoResize]="false" [sortable]="false">
+                <ng-template ngx-datatable-header-template
+                  let-sort="sortFn">
+                  <span>{{ "max" | translate }}</span>
+                </ng-template>
+                <ng-template
+                  ngx-datatable-cell-template
+                  let-value="value"
+                  let-row="row">
+                  <div>
+                    {{ row.max }}/ {{ row.base }}
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="{{ 'Semestre 2' | translate }}">
+        <!-- Tableau groupe user -->
+        <div fxLayout="column">
+          <div class="prefix-css">
+            <ngx-datatable
+              class="material striped"
+              [headerHeight]="25"
+              [columnMode]="ColumnMode.force"
+              [footerHeight]="35"
+              [rowHeight]="'auto'"
+              [rows]="rows1"
+              [limit]="nbligne"
+              [selected]
+              [selectionType]="SelectionType.checkbox"
+              [selectAllRowsOnPage]="false">
+              <ngx-datatable-column
+                prop="matiere" [width]="600"
+            [canAutoResize]="false" [sortable]="false">
+                <ng-template ngx-datatable-header-template
+                  let-sort="sortFn">
+                  <span>{{ "matiere" | translate }}</span>
+                </ng-template>
+                <ng-template
+                  ngx-datatable-cell-template
+                  let-value="value"
+                  let-row="row">
+                  <div>
+                    {{ row.matiere }}
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="moyenne" [width]="100" [canAutoResize]="false" [sortable]="false">
+                <ng-template ngx-datatable-header-template
+                  let-sort="sortFn">
+                  <span>{{ "moyenne" | translate }}</span>
+                </ng-template>
+                <ng-template
+                  ngx-datatable-cell-template
+                  let-value="value"
+                  let-row="row">
+                  <div>
+                    {{ row.moyenne }}/ {{ row.base }}
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="evaluations" [sortable]="false">
+                <ng-template ngx-datatable-header-template
+                  let-sort="sortFn">
+                  <span>{{ "evaluations" | translate }}</span>
+                </ng-template>
+                <ng-template
+                  ngx-datatable-cell-template
+                  let-value="value"
+                  let-row="row">
+                  <div *ngFor="let evaluation of row.notes">
+                    <div>
+                      (  {{ evaluation.note }} / {{ evaluation.base }} - {{evaluation.type}} )
+                    </div>
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="classe" [width]="100" [canAutoResize]="false" [sortable]="false">
+                <ng-template ngx-datatable-header-template
+                  let-sort="sortFn">
+                  <span>{{ "classe" | translate }}</span>
+                </ng-template>
+                <ng-template
+                  ngx-datatable-cell-template
+                  let-value="value"
+                  let-row="row">
+                  <div>
+                    {{ row.classe }}/ {{ row.base }}
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="min" [width]="100" [canAutoResize]="false" [sortable]="false">
+                <ng-template ngx-datatable-header-template
+                  let-sort="sortFn">
+                  <span>{{ "min" | translate }}</span>
+                </ng-template>
+                <ng-template
+                  ngx-datatable-cell-template
+                  let-value="value"
+                  let-row="row">
+                  <div>
+                    {{ row.min }}/ {{ row.base }}
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="max" [width]="100" [canAutoResize]="false" [sortable]="false">
+                <ng-template ngx-datatable-header-template
+                  let-sort="sortFn">
+                  <span>{{ "max" | translate }}</span>
+                </ng-template>
+                <ng-template
+                  ngx-datatable-cell-template
+                  let-value="value"
+                  let-row="row">
+                  <div>
+                    {{ row.max }}/ {{ row.base }}
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+    <!-- Tableau -->
+  </div>
+</div>

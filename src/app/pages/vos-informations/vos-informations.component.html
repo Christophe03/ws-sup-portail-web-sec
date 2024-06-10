@@ -1,0 +1,101 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" class="flex-p">
+  <div fxLayout="column" fxFlex="100">
+    <mat-button-toggle-group
+      #controls="matButtonToggleGroup"
+      appearance="legacy">
+      <div fxLayout="row" fxFlex="100" fxLayoutAlign="start center">
+        <div fxFlex="100" fxLayout="column">
+          <mat-label class="page-title">{{ "vos.informations" |
+            translate }}
+          </mat-label>
+        </div>
+      </div>
+    </mat-button-toggle-group>
+  </div>
+</div>
+<div
+  style="display: flex; flex-direction: row; justify-content: space-between;">
+
+  <mat-card fxFlex="50" style="margin: 8px 16px;">
+    <mat-card-header class="full-width-header">
+      <mat-card-title>État Civil</mat-card-title>
+    </mat-card-header>
+    <mat-card-content style="padding: 10px;">
+      <div style="font-size: 16px;">
+        <table>
+          <tr>
+            <td><strong>Matricule : </strong></td>
+            <td> </td>
+            <td><em>{{user?.code}}</em></td>
+          </tr>
+          <tr>
+            <td><strong>Nom : </strong></td>
+            <td> </td>
+            <td><em>{{user?.nom}}</em></td>
+          </tr>
+          <tr>
+            <td><strong>Prénom : </strong></td>
+            <td> </td>
+            <td><em>{{user?.prenom}}</em></td>
+          </tr>
+          <tr>
+            <td><strong>Sexe : </strong></td>
+            <td> </td>
+            <td><em>{{user?.sexe}}</em></td>
+          </tr>
+          <tr>
+            <td><strong>Date de Naissance : </strong></td>
+            <td> </td>
+            <td><em>{{ convertirTimestampEnDate(user?.date_naiss.seconds) |
+                date:
+                'dd/MM/yyyy' }}</em></td>
+          </tr>
+          <tr>
+            <td><strong>Lieu de Naissance : </strong></td>
+            <td> </td>
+            <td><em>{{user?.lieu_naiss}}</em></td>
+          </tr>
+          <tr>
+            <td><strong>Email : </strong></td>
+            <td> </td>
+            <td><em>{{user?.email}}</em></td>
+          </tr>
+        </table>
+
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <mat-card fxFlex="50" style="margin: 8px 16px;">
+    <mat-card-header class="full-width-header">
+      <mat-card-title>Vos Coordonnées</mat-card-title>
+    </mat-card-header>
+    <mat-card-content style="padding: 16px;">
+      <div style="font-size: 16px;">
+        <table>
+          <tr>
+            <td><strong>Adresse : </strong></td>
+            <td> </td>
+            <td><em>{{user?.adresse}}</em></td>
+          </tr>
+          <tr>
+            <td><strong>Ville : </strong></td>
+            <td> </td>
+            <td><em>{{user?.ville}}</em></td>
+          </tr>
+          <tr>
+            <td><strong>Tel1 : </strong></td>
+            <td> </td>
+            <td><em>{{user?.tel1}}</em></td>
+          </tr>
+          <tr>
+            <td><strong>Tel2 : </strong></td>
+            <td> </td>
+            <td><em>{{user?.tel2}}</em></td>
+          </tr>
+        </table>
+
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+</div>

@@ -1,0 +1,164 @@
+<div fxLayout="column">
+  <div fxLayout="row" fxLayoutAlign="space-between center" class="flex-p">
+    <div fxLayout="column" fxFlex="100">
+      <mat-button-toggle-group
+        #controls="matButtonToggleGroup"
+        appearance="legacy">
+        <div fxLayout="row" fxFlex="100" fxLayoutAlign="start center">
+          <div fxFlex="100" fxLayout="column">
+            <mat-icon class="icon">email</mat-icon>
+            <mat-label class="page-title">{{ "Messagerie" | translate
+              }}</mat-label>
+          </div>
+        </div>
+      </mat-button-toggle-group>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-between center" class="flex-p">
+    <div fxLayout="column" fxFlex="100">
+      <div fxLayout="row" fxLayoutAlign="space-between center" class>
+        <div fxLayout="column" fxFlex="100">
+          <mat-button-toggle-group
+            #controls="matButtonToggleGroup"
+            appearance="legacy">
+            <div
+              fxLayout="row"
+              fxFlex="5"
+              fxLayoutAlign="start center"
+              class="page-title">
+              <button
+                mat-icon-button
+                color="primary"
+                matTooltip="{{ 'Nouveau message' | translate }}">
+                <mat-icon>add_circle</mat-icon>
+              </button>
+            </div>
+            <div fxLayout="row" fxFlex="85" fxLayoutAlign="start center">
+              <form class="list-search">
+                <mat-form-field appearance="outline">
+                  <input
+                    matInput
+                    placeholder="{{ 'Rechercher...' | translate }}" />
+                </mat-form-field>
+              </form>
+            </div>
+            <div fxFlex="10" fxLayout="column" class="px-1">
+              <div class="list-search">
+                <mat-form-field appearance="outline">
+                  <mat-select
+                    placeholder="{{ 'Statut' | translate }}"
+                    [(ngModel)]="fw.statut">
+                    <mat-option value="-">{{ 'Tous les statuts' | translate
+                      }}</mat-option>
+                    <mat-option [value]>{{ 'Lu' | translate }}</mat-option>
+                    <mat-option [value]>{{ 'Non lu' | translate
+                      }}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxLayout="row" fxFlex="10" fxLayoutAlign="end center">
+              <button
+                mat-icon-button
+                color="primary"
+                matTooltip="{{ 'Importer' | translate }}">
+                <mat-icon>cloud_upload</mat-icon>
+              </button>
+              <button
+                mat-icon-button
+                color="primary"
+                matTooltip="{{ 'Imprimer' | translate }}">
+                <mat-icon>print</mat-icon>
+              </button>
+              <button
+                mat-icon-button
+                color="primary"
+                matTooltip="{{ 'Supprimer' | translate }}">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </mat-button-toggle-group>
+        </div>
+      </div>
+      <!-- ... (votre code existant) ... -->
+
+      <!-- Tableau des messages -->
+      <div fxLayout="column">
+        <div class="prefix-css">
+          <ngx-datatable
+            class="material striped"
+            [headerHeight]="25"
+            [columnMode]="ColumnMode.force"
+            [footerHeight]="35"
+            [rowHeight]="'auto'"
+            [rows]="messages"
+            [limit]="nbligne"
+            [selected]
+            [selectionType]="SelectionType.checkbox"
+            [selectAllRowsOnPage]="false">
+            <!-- ... (colonnes et configurations de tableau existantes) ... -->
+
+            <!-- Nouvelle colonne pour le contenu des messages -->
+            <ngx-datatable-column prop="contenu">
+              <ng-template ngx-datatable-header-template
+                let-sort="sortFn">
+                <span>{{ "Contenu" | translate }}</span>
+              </ng-template>
+              <ng-template
+                ngx-datatable-cell-template
+                let-value="value"
+                let-row="row">
+                <div>
+                  {{ row.code }}
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column prop="contenu">
+              <ng-template ngx-datatable-header-template
+                let-sort="sortFn">
+                <span>{{ "libelle" | translate }}</span>
+              </ng-template>
+              <ng-template
+                ngx-datatable-cell-template
+                let-value="value"
+                let-row="row">
+                <div>
+                  {{ row.libelle }}
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column prop="contenu">
+              <ng-template ngx-datatable-header-template
+                let-sort="sortFn">
+                <span>{{ "contenu" | translate }}</span>
+              </ng-template>
+              <ng-template
+                ngx-datatable-cell-template
+                let-value="value"
+                let-row="row">
+                <div>
+                  {{ row.contenu }}
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+            <!-- <ngx-datatable-column prop="contenu">
+                  <ng-template ngx-datatable-header-template
+                    let-sort="sortFn">
+                    <span>{{ "etat" | translate }}</span>
+                  </ng-template>
+                  <ng-template
+                    ngx-datatable-cell-template
+                    let-value="value"
+                    let-row="row">
+                    <div>
+                      {{ row.etat }}
+                    </div>
+                  </ng-template>
+                </ngx-datatable-column> -->
+          </ngx-datatable>
+        </div>
+      </div>
+      <!-- ... (suite du code) ... -->
+    </div>
+  </div>
+</div>

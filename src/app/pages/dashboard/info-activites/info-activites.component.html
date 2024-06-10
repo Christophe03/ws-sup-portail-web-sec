@@ -1,0 +1,44 @@
+<mat-card class="p-0">
+    <mat-card-header class="p-1 bg-color-blue" fxLayoutAlign="space-between center">
+        <mat-card-subtitle class="m-0">{{'mes.activites'|translate}}</mat-card-subtitle>
+        <div class="select">
+            <mat-select [(ngModel)]="typeActivite" class="header-select" (selectionChange)="filter($event.value)">
+                <mat-option value="TOUS">{{
+                    "toutes" | translate
+                    }}</mat-option>
+                <mat-option value="A">{{
+                    "activite" | translate
+                    }}</mat-option>
+                <mat-option value="R">{{
+                    "rendez.vous" | translate
+                    }}</mat-option>
+
+            </mat-select>
+        </div>
+    </mat-card-header>
+    <div class="w-100 h-400p afficher" fxLayoutAlign="space-between start">
+        <ngx-datatable class="material striped" [headerHeight]="25" [columnMode]="'force'" [footerHeight]="35"
+            [rowHeight]="'auto'" [rows]="rows" [limit]="nbligne"
+            [messages]="{emptyMessage: '', totalMessage: 'Activités'}">
+            <ngx-datatable-column>
+                <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                    <div (click)="edit(row)">
+                        <div class="chip-date2" *ngIf="row.nature==='A'" [style.background-color]="'#1e90ff'">
+                            {{
+                            row.dateDebut | date: "dd/MM/yyyy"
+                            }}
+                        </div>
+                        <div class="chip-date2" *ngIf="row.nature==='R'" [style.background-color]="'#e3bc08'">
+                            {{
+                            row.dateDebut | date: "dd/MM/yyyy"
+                            }}
+                        </div>
+                        <div class="message-detail">
+                            {{ row.resume }}
+                        </div>
+                    </div>
+                </ng-template>
+            </ngx-datatable-column>
+        </ngx-datatable>
+    </div>
+</mat-card>

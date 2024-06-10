@@ -1,0 +1,138 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" class="flex-p">
+  <div fxLayout="column" fxFlex="100">
+    <mat-button-toggle-group
+      #controls="matButtonToggleGroup"
+      appearance="legacy">
+      <div fxLayout="row" fxFlex="100" fxLayoutAlign="start center">
+        <div fxFlex="100" fxLayout="column"
+          *ngFor="let structure of structures">
+          <mat-label class="page-title">{{ universite }}
+          </mat-label>
+        </div>
+      </div>
+    </mat-button-toggle-group>
+  </div>
+</div>
+<div class="tab-card">
+  <div class="mat-elevation-z2" fxLayout="column" class="flex-p">
+    <div fxFlex="100" fxLayout="row">
+      <div fxFlex="35" fxLayout="column" style="box-sizing: border-box;">
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <div fxLayout="column" fxFlex="100">
+            <mat-button-toggle-group #controls="matButtonToggleGroup"
+              appearance="legacy">
+              <div fxLayout="row" fxFlex="100" fxLayoutAlign="start center">
+                <div fxFlex="100" fxLayout="column">
+                  <mat-label class="page-title">{{ "quoi-de-neuf" | translate
+                    }}</mat-label>
+                </div>
+              </div>
+            </mat-button-toggle-group>
+          </div>
+        </div>
+        <div fxLayout="column" class="custom-datatable"
+          *ngFor="let actu of messages">
+          <mat-card class="custom-card">
+            <mat-card-header [ngStyle]="{ 'background-color': actu.color }">
+              <mat-card-title [style.color]="'white'"
+                [style.text-align]="'center'"
+                style="font-size: 18px; display: block;">{{ actu.categorie |
+                uppercase }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-title class="custom-sender"
+              style="font-weight: bold; color: #242424; font-size: 16px;">
+              {{ actu.sender }}
+            </mat-card-title>
+            <mat-card-content style="margin-bottom: 2px;">
+              <p *ngIf="!actu.isExpanded">{{ actu.message | slice:0:100
+                }}...</p>
+              <p *ngIf="actu.isExpanded">{{ actu.message }}</p>
+            </mat-card-content>
+            <mat-card-footer class="custom-footer">
+              <button mat-button (click)="toggleText(actu)">{{ actu.isExpanded ?
+                'Voir moins' : 'Voir plus' }}</button>
+              <span class="timestamp" style="margin: 10px;">{{
+                formatterDateHeure(actu.timestamp)
+                }}</span>
+            </mat-card-footer>
+          </mat-card>
+        </div>
+        <!-- <div fxLayout="column" class="custom-datatable" *ngFor="let actu of messages">
+   <mat-card class="custom-card" >
+  <mat-card-header [ngStyle]="{ 'background-color': actu.color }">
+    <mat-card-title [style.color]="'white'" [style.text-align]="'center'" style="font-size: 18px; display: block;">{{ actu.categorie | uppercase}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-title class="custom-sender" style="font-weight: bold; color: #242424; font-size: 16px;">
+    {{ actu.sender }}
+  </mat-card-title>
+  <mat-card-content>
+    <p>{{ actu.message }}</p>
+  </mat-card-content>
+  <mat-card-footer>
+    <button mat-button>{{ formatterDateHeure(actu.timestamp) }}</button>
+  </mat-card-footer>
+</mat-card>
+  </div> -->
+      </div>
+      <div fxFlex="2" fxLayout="column"></div>
+      <div fxFlex="100" fxLayout="column" fxLayoutGap="10px">
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <div fxLayout="column" fxFlex="100">
+            <mat-button-toggle-group #controls="matButtonToggleGroup"
+              appearance="legacy">
+              <div fxLayout="row" fxFlex="100" fxLayoutAlign="start center">
+                <div fxFlex="100" fxLayout="column">
+                  <mat-label class="page-title">{{ "Emploi du temps" | translate
+                    }}</mat-label>
+                </div>
+              </div>
+            </mat-button-toggle-group>
+          </div>
+        </div>
+        <div fxLayout="column" fxFlex="100">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 150px;">Jour</th>
+                <th>Matin</th>
+                <th>Soir</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Lundi</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Mardi</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Mercredi</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Jeudi</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Vendredi</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Samedi</td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
